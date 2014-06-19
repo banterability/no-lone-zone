@@ -10,7 +10,7 @@ app.set 'layout', 'layout'
 app.engine 'mustache', require 'hogan-express'
 
 app.get '/', (req, res) ->
-  res.send 'hey'
+  res.render 'index'
 
 port = process.env.PORT || 5678
 app.listen port, ->
