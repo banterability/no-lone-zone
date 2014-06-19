@@ -1,0 +1,16 @@
+{
+  "name": "no-lone-zone",
+  "version": "0.0.0",
+  "main": "index.coffee",
+  "author": "Jeff Long",
+  "license": "MIT",
+  "description": "A playground for Two-Factor Auth ideas.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/banterability/no-lone-zone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/banterability/no-lone-zone/issues"
+  },
+  "homepage": "https://github.com/banterability/no-lone-zone"
+}
