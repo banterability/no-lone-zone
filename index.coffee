@@ -7,7 +7,6 @@ app.use require('body-parser')()
 app.use require('morgan')('dev')
 
 app.set 'view engine', 'mustache'
-app.set 'layout', 'layout'
 app.engine 'mustache', require 'hogan-express'
 
 class Switchboard
