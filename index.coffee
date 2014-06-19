@@ -12,6 +12,9 @@ app.engine 'mustache', require 'hogan-express'
 app.get '/', (req, res) ->
   res.render 'index'
 
+app.get '/hello', (req, res) ->
+  res.render 'hello'
+
 port = process.env.PORT || 5678
 app.listen port, ->
   console.log "#{app.get 'env'} server up on #{port}…"
