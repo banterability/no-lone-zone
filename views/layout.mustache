@@ -7,5 +7,16 @@
   </head>
   <body>
     {{{yield}}}
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      var registerPhone = function(){
+        phone = prompt('phone number?');
+        socket.emit('registerPhone', {phone: phone});
+      }
+      socket.on('phoneValid', function(){
+        alert('phone validated!');
+      });
+    </script>
   </body>
 </html>
