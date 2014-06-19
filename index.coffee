@@ -2,12 +2,10 @@ app = require('express')()
 server = require('http').Server(app)
 io = require('socket.io')(server)
 events = require 'events'
+fs = require 'fs'
 
 app.use require('body-parser')()
 app.use require('morgan')('dev')
-
-app.set 'view engine', 'mustache'
-app.engine 'mustache', require 'hogan-express'
 
 class Switchboard
   constructor: ->
@@ -40,7 +38,9 @@ sb = new Switchboard
 
 # Express
 app.get '/', (req, res) ->
-  res.render 'index'
+  fs.readFile 'index.html', encoding: 'utf-8', (err, data) ->
+    return res.send 500 if err
+    res.send data
 
 app.post '/sms/callback', (req, res) ->
   number = parseInt(req.body.from, 10)

@@ -16,7 +16,6 @@
   "dependencies": {
     "body-parser": "^1.2.2",
     "express": "^4.4.0",
-    "express-hogan": "0.0.5",
     "morgan": "^1.1.1",
     "node-uuid": "^1.4.1",
     "socket.io": "^1.0.2"
