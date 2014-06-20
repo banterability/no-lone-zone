@@ -15,7 +15,7 @@ class Phone
     sms.send {
       to: @number
       body: 'Respond to this message – really, say anything – to validate your phone. Ready, set... beeeeep:'
-    }, (err, sms) ->
+    }, (err, sms) =>
       @trigger 'validationRequested' unless err
 
   afterValidationSent: (cb) ->
