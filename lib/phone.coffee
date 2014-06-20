@@ -1,3 +1,4 @@
+events = require 'events'
 sms = require './sms'
 
 class Phone
