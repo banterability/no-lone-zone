@@ -8,10 +8,22 @@
   </head>
   <body>
     <section class='status-list'>
-    <p>socket status: <span id="socket-status" class="unknown">connecting...</span></p>
-    <p>phone status: <span id="phone-status" class="unknown">
-      no phone listed <a href="javascript:registerPhone()">register one</a>
-    </span></p>
+      <p>socket status:
+        <span id="socket-status" class="unknown">connecting...</span>
+      </p>
+      <p>phone status:
+        <span id="phone-status" class="unknown">
+          no phone listed
+          <a href="javascript:registerPhone()">register one</a>
+        </span>
+      </p>
+    </section>
+    <section class="add-phone">
+      <fieldset>
+        (<input type="tel" name="areaCode" pattern="\d{3}" required title='3 digit area code'>)
+        <input type="tel" name="exchange" pattern="\d{3}" required title='first 3 digits of phone number'> –
+        <input type="tel" name="subscriberNumber" pattern="\d{4}" required title='last 4 digits of phone number'>
+      </fieldset>
     </section>
 
     <script src="/socket.io/socket.io.js"></script>
