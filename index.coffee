@@ -2,17 +2,12 @@ events = require 'events'
 express = require 'express'
 fs = require 'fs'
 http = require 'http'
-loadConfig = require './config'
 socketIo = require 'socket.io'
 Switchboard = require './lib/switchboard'
-twilio = require 'twilio'
 
 app = express()
 server = http.Server(app)
 io = socketIo(server)
-
-config = loadConfig 'config.json'
-twilioClient = twilio config.twilio.accountSID, config.twilio.authToken
 
 app.use require('body-parser')()
 app.use require('morgan')('dev')
