@@ -2,12 +2,16 @@ events = require 'events'
 express = require 'express'
 fs = require 'fs'
 http = require 'http'
+loadConfig = require './config'
 socketIo = require 'socket.io'
 twilio = require 'twilio'
 
 app = express()
 server = http.Server(app)
 io = socketIo(server)
+
+config = loadConfig 'config.json'
+twilioClient = twilio config.twilio.accountSID, config.twilio.authToken
 
 app.use require('body-parser')()
 app.use require('morgan')('dev')
@@ -40,7 +44,7 @@ class Phone
   validate: ->
     # twilioClient.sendMessage({
     #   to: @number
-    #   from: "TKTKTK"
+    #   from: config.twilio.phoneNumber
     #   body: 'Respond to this message – really, say anything – to validate your phone. Ready, set... beeeeep:'
     # }, (err, sms) =>
     #   console.log 'twilio err', err
