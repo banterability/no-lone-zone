@@ -1,0 +1,9 @@
+.status-list span.ok{ color: green; }
+.status-list span.unknown{ color: #aaa; }
+.status-list span.bad{ color: red; }
+input[type=tel]:valid{
+  background-color: rgba(0, 255, 0, 0.15);
+}
+input[type=tel]:invalid{
+  background-color: rgba(255, 0, 0, 0.15);
+};

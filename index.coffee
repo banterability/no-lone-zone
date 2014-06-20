@@ -2,10 +2,12 @@ app = require('express')()
 server = require('http').Server(app)
 io = require('socket.io')(server)
 events = require 'events'
+express = require 'express'
 fs = require 'fs'
 
 app.use require('body-parser')()
 app.use require('morgan')('dev')
+app.use express.static "#{__dirname}/public"
 
 class Switchboard
   constructor: ->
