@@ -1,4 +1,3 @@
-events = require 'events'
 express = require 'express'
 fs = require 'fs'
 http = require 'http'
@@ -6,8 +5,8 @@ socketIo = require 'socket.io'
 Switchboard = require './lib/switchboard'
 
 app = express()
-server = http.Server(app)
-io = socketIo(server)
+server = http.Server app
+io = socketIo server
 
 app.use require('body-parser')()
 app.use require('morgan')('dev')
@@ -22,14 +21,13 @@ app.get '/', (req, res) ->
     res.send data
 
 app.post '/sms/callback', (req, res) ->
-  number = parseInt(req.body.from, 10)
+  number = parseInt(req.body.From, 10)
   sb.route number, 'valid'
   res.send 200
 
 # Socket.IO
 
 io.on 'connection', (socket) ->
-  console.log "1) New browser client"
   socket.on 'registerPhone', (data) ->
     phoneNumber = parseInt(data.phone, 10)
     phone = sb.addPhone phoneNumber

@@ -3,7 +3,7 @@ sms = require './sms'
 
 class Phone
   constructor: (options = {})->
-    @number = "+1" + options.number
+    @number = "+1#{options.number}"
     @events = new events.EventEmitter
 
   trigger: (eventType) ->
